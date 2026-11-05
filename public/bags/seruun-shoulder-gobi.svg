@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="seruun-shoulder-gobi">
+  
+  <defs>
+    <linearGradient id="body-seruun-shoulder-gobi" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dcc095"/><stop offset=".5" stop-color="#bd9b6b"/><stop offset="1" stop-color="#8d6f46"/>
+    </linearGradient>
+    <linearGradient id="flap-seruun-shoulder-gobi" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dcc095"/><stop offset="1" stop-color="#bd9b6b"/>
+    </linearGradient>
+    <linearGradient id="gold-seruun-shoulder-gobi" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#efd9a6"/><stop offset=".55" stop-color="#b08d57"/><stop offset="1" stop-color="#7c5f33"/>
+    </linearGradient>
+    <filter id="soft-seruun-shoulder-gobi" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="16"/></filter>
+  </defs>
+  <defs><radialGradient id="bg-seruun-shoulder-gobi" cx="50%" cy="42%" r="75%"><stop offset="0" stop-color="#fbf8f2"/><stop offset="1" stop-color="#ebe4d6"/></radialGradient></defs>
+  <rect width="800" height="800" fill="url(#bg-seruun-shoulder-gobi)"/>
+  <ellipse cx="400" cy="648" rx="265" ry="24" fill="#000" opacity="0.2" filter="url(#soft-seruun-shoulder-gobi)"/>
+  
+    <path d="M230 300 C210 90 590 90 570 300" fill="none" stroke="url(#gold-seruun-shoulder-gobi)" stroke-width="7" stroke-dasharray="15 6"/>
+    <path d="M160 315 Q155 285 190 285 H610 Q645 285 640 315 L625 560 Q622 590 590 590 H210 Q178 590 175 560 Z" fill="url(#body-seruun-shoulder-gobi)"/>
+    <path d="M152 300 Q152 280 180 280 H620 Q648 280 648 300 L640 400 Q400 505 160 400 Z" fill="url(#flap-seruun-shoulder-gobi)"/>
+    <path d="M166 296 H634 L628 392 Q400 490 172 392 Z" fill="none" stroke="#dcc095" stroke-width="1.6" stroke-dasharray="6 5" opacity=".55"/>
+    
+  <circle cx="400" cy="447" r="15" fill="url(#gold-seruun-shoulder-gobi)"/>
+  <circle cx="400" cy="447" r="10" fill="none" stroke="#7c5f33" stroke-width="1.2"/>
+  <circle cx="400" cy="447" r="5" fill="#efd9a6"/>
+</svg>

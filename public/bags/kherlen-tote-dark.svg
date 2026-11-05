@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="kherlen-tote">
+  
+  <defs>
+    <linearGradient id="body-kherlen-tote-d" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8a5a3a"/><stop offset=".5" stop-color="#603b24"/><stop offset="1" stop-color="#3b2314"/>
+    </linearGradient>
+    <linearGradient id="flap-kherlen-tote-d" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8a5a3a"/><stop offset="1" stop-color="#603b24"/>
+    </linearGradient>
+    <linearGradient id="gold-kherlen-tote-d" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#efd9a6"/><stop offset=".55" stop-color="#b08d57"/><stop offset="1" stop-color="#7c5f33"/>
+    </linearGradient>
+    <filter id="soft-kherlen-tote-d" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="16"/></filter>
+  </defs>
+  <defs><radialGradient id="bg-kherlen-tote-d" cx="50%" cy="42%" r="75%"><stop offset="0" stop-color="#25201c"/><stop offset="1" stop-color="#100e0c"/></radialGradient></defs>
+  <rect width="800" height="800" fill="url(#bg-kherlen-tote-d)"/>
+  <ellipse cx="400" cy="648" rx="265" ry="24" fill="#000" opacity="0.6" filter="url(#soft-kherlen-tote-d)"/>
+  
+    <path d="M285 300 V170 Q285 135 320 135 H345 Q380 135 380 170 V300" fill="none" stroke="#3b2314" stroke-width="17"/>
+    <path d="M420 300 V170 Q420 135 455 135 H480 Q515 135 515 170 V300" fill="none" stroke="#3b2314" stroke-width="17"/>
+    <path d="M165 275 H635 L605 615 Q603 632 585 632 H215 Q197 632 195 615 Z" fill="url(#body-kherlen-tote-d)"/>
+    <path d="M178 292 H622" fill="none" stroke="#8a5a3a" stroke-width="1.6" stroke-dasharray="6 5" opacity=".55"/>
+    <path d="M208 618 H592" fill="none" stroke="#8a5a3a" stroke-width="1.6" stroke-dasharray="6 5" opacity=".55"/>
+    <rect x="265" y="292" width="40" height="72" rx="3" fill="#3b2314"/>
+    <rect x="495" y="292" width="40" height="72" rx="3" fill="#3b2314"/>
+    
+  <circle cx="400" cy="440" r="14" fill="url(#gold-kherlen-tote-d)"/>
+  <circle cx="400" cy="440" r="9" fill="none" stroke="#7c5f33" stroke-width="1.2"/>
+  <circle cx="400" cy="440" r="4" fill="#efd9a6"/>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="manan-mini">
+  
+  <defs>
+    <linearGradient id="body-manan-mini-d" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c2a33"/><stop offset=".5" stop-color="#561922"/><stop offset="1" stop-color="#340c13"/>
+    </linearGradient>
+    <linearGradient id="flap-manan-mini-d" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7c2a33"/><stop offset="1" stop-color="#561922"/>
+    </linearGradient>
+    <linearGradient id="gold-manan-mini-d" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#efd9a6"/><stop offset=".55" stop-color="#b08d57"/><stop offset="1" stop-color="#7c5f33"/>
+    </linearGradient>
+    <filter id="soft-manan-mini-d" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="16"/></filter>
+  </defs>
+  <defs><radialGradient id="bg-manan-mini-d" cx="50%" cy="42%" r="75%"><stop offset="0" stop-color="#25201c"/><stop offset="1" stop-color="#100e0c"/></radialGradient></defs>
+  <rect width="800" height="800" fill="url(#bg-manan-mini-d)"/>
+  <ellipse cx="400" cy="648" rx="265" ry="24" fill="#000" opacity="0.6" filter="url(#soft-manan-mini-d)"/>
+  
+    <path d="M222 300 C160 60 640 60 578 300" fill="none" stroke="#340c13" stroke-width="10"/>
+    <path d="M205 300 Q205 270 240 270 H560 Q595 270 595 300 V540 Q595 575 560 575 H240 Q205 575 205 540 Z" fill="url(#body-manan-mini-d)"/>
+    <path d="M205 300 Q205 270 240 270 H560 Q595 270 595 300 V375 Q595 400 400 400 Q205 400 205 375 Z" fill="url(#flap-manan-mini-d)"/>
+    <path d="M218 300 Q218 284 240 284 H560 Q582 284 582 300 V372 Q582 386 400 386 Q218 386 218 372 Z" fill="none" stroke="#7c2a33" stroke-width="1.6" stroke-dasharray="6 5" opacity=".55"/>
+    
+  <circle cx="400" cy="402" r="16" fill="url(#gold-manan-mini-d)"/>
+  <circle cx="400" cy="402" r="11" fill="none" stroke="#7c5f33" stroke-width="1.2"/>
+  <circle cx="400" cy="402" r="6" fill="#efd9a6"/>
+</svg>

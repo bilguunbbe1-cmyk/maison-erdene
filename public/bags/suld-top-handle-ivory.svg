@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="suld-top-handle-ivory">
+  
+  <defs>
+    <linearGradient id="body-suld-top-handle-ivory" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4ecdc"/><stop offset=".5" stop-color="#ddd0b8"/><stop offset="1" stop-color="#b6a688"/>
+    </linearGradient>
+    <linearGradient id="flap-suld-top-handle-ivory" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4ecdc"/><stop offset="1" stop-color="#ddd0b8"/>
+    </linearGradient>
+    <linearGradient id="gold-suld-top-handle-ivory" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#efd9a6"/><stop offset=".55" stop-color="#b08d57"/><stop offset="1" stop-color="#7c5f33"/>
+    </linearGradient>
+    <filter id="soft-suld-top-handle-ivory" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="16"/></filter>
+  </defs>
+  <defs><radialGradient id="bg-suld-top-handle-ivory" cx="50%" cy="42%" r="75%"><stop offset="0" stop-color="#fbf8f2"/><stop offset="1" stop-color="#ebe4d6"/></radialGradient></defs>
+  <rect width="800" height="800" fill="url(#bg-suld-top-handle-ivory)"/>
+  <ellipse cx="400" cy="648" rx="265" ry="24" fill="#000" opacity="0.2" filter="url(#soft-suld-top-handle-ivory)"/>
+  
+    <path d="M300 245 C300 120 500 120 500 245" fill="none" stroke="#b6a688" stroke-width="21" stroke-linecap="round"/>
+    <path d="M300 245 C300 120 500 120 500 245" fill="none" stroke="#f4ecdc" stroke-width="5" opacity=".45" stroke-linecap="round"/>
+    <path d="M190 255 Q190 235 212 235 H588 Q610 235 610 255 L632 575 Q634 600 608 600 H192 Q166 600 168 575 Z" fill="url(#body-suld-top-handle-ivory)"/>
+    <path d="M186 240 H614 L612 390 Q400 470 188 390 Z" fill="url(#flap-suld-top-handle-ivory)"/>
+    <path d="M198 250 H602 L600 382 Q400 456 200 382 Z" fill="none" stroke="#f4ecdc" stroke-width="1.6" stroke-dasharray="6 5" opacity=".55"/>
+    <path d="M182 586 H618" fill="none" stroke="#f4ecdc" stroke-width="1.6" stroke-dasharray="6 5" opacity=".55"/>
+    
+  <circle cx="400" cy="424" r="17" fill="url(#gold-suld-top-handle-ivory)"/>
+  <circle cx="400" cy="424" r="12" fill="none" stroke="#7c5f33" stroke-width="1.2"/>
+  <circle cx="400" cy="424" r="7" fill="#efd9a6"/>
+</svg>
