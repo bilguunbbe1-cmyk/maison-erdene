@@ -1,0 +1,85 @@
+@import 'tailwindcss';
+@import '@fontsource/cormorant-garamond/400.css';
+@import '@fontsource/cormorant-garamond/500.css';
+@import '@fontsource/cormorant-garamond/400-italic.css';
+@import '@fontsource-variable/manrope';
+
+/* Design tokens: every colour and font in the app comes from here. */
+@theme {
+  --color-ivory: #f8f5ef;
+  --color-sand: #ebe4d6;
+  --color-line: #ddd5c6;
+  --color-ink: #14110f;
+  --color-ash: #6e665c;
+  --color-gold: #b08d57;
+  --color-gold-dark: #8a6c3f;
+  --color-ok: #3f6b52;
+  --color-danger: #9c2f2f;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Manrope Variable', system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-ivory font-sans text-ink antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-serif font-normal;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-[11px] font-medium tracking-[0.28em] text-ash uppercase;
+  }
+  .btn,
+  .btn-primary,
+  .btn-outline,
+  .btn-light,
+  .btn-danger {
+    @apply inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 px-7 text-xs font-medium tracking-[0.18em] uppercase transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-ink text-ivory hover:bg-gold-dark;
+  }
+  .btn-outline {
+    @apply border border-ink text-ink hover:bg-ink hover:text-ivory;
+  }
+  .btn-light {
+    @apply border border-ivory text-ivory hover:bg-ivory hover:text-ink;
+  }
+  .btn-danger {
+    @apply bg-danger text-white hover:opacity-90;
+  }
+  .btn-sm {
+    @apply min-h-9 px-4 text-[11px] tracking-[0.14em];
+  }
+  .link {
+    @apply cursor-pointer underline decoration-line underline-offset-4 transition-colors hover:decoration-ink;
+  }
+  .input {
+    @apply min-h-12 w-full border border-line bg-white/60 px-4 text-sm transition-colors outline-none placeholder:text-ash/60 focus:border-ink;
+  }
+  .input-error {
+    @apply border-danger;
+  }
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+  .table-admin {
+    @apply w-full min-w-[640px] text-left text-sm;
+  }
+  .table-admin th {
+    @apply border-b border-line px-4 py-3 text-[11px] font-medium tracking-[0.14em] text-ash uppercase;
+  }
+  .table-admin td {
+    @apply border-b border-line/60 px-4 py-3 align-middle;
+  }
+}
