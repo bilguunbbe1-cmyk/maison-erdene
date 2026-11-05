@@ -1,0 +1,9 @@
+# Neither function relies on the gateway's JWT check:
+# - stripe-webhook: Stripe has no Supabase JWT. It verifies Stripe's signature instead.
+# - create-checkout: it verifies the user itself with auth.getUser(token), which also
+#   works with Supabase's newer asymmetric signing keys.
+[functions.stripe-webhook]
+verify_jwt = false
+
+[functions.create-checkout]
+verify_jwt = false
