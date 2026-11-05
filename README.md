@@ -14,6 +14,7 @@
 
 | Материал | Файл |
 |---|---|
+| Амьд сайт | [maison-erdene.vercel.app](https://maison-erdene.vercel.app) |
 | Илтгэл (PPT, PDF) | [docs/presentation](docs/presentation) |
 | Wireframe | [docs/wireframes/wireframes.pdf](docs/wireframes/wireframes.pdf) |
 | ERD | [docs/erd.png](docs/erd.png) |
