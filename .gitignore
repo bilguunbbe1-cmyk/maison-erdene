@@ -7,3 +7,6 @@ supabase/.env
 supabase/.temp
 *.log
 .DS_Store
+
+.vercel
+.env*
