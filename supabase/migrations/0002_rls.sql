@@ -60,6 +60,10 @@ grant select on public.orders, public.order_items, public.payments, public.certi
 
 grant all on all tables in schema public to service_role;
 
+-- Admin inserts use the id sequences, so they need this whatever the project's defaults are.
+grant usage on all sequences in schema public to authenticated;
+grant all on all sequences in schema public to service_role;
+
 -- profiles
 create policy "profiles: read own or admin" on public.profiles
   for select to authenticated
