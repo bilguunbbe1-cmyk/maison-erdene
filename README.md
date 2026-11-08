@@ -87,9 +87,15 @@ Stripe Dashboard > Developers > Webhooks хэсэгт шинэ endpoint нэмн
 npx supabase secrets set STRIPE_WEBHOOK_SECRET=whsec_...
 ```
 
+**CLI-гүйгээр (Supabase Dashboard-аар) хийх бол:**
+
+1. Edge Functions > Deploy a new function > Via Editor: `create-checkout`, `stripe-webhook` функц бүрийн `index.ts` кодыг хуулж байршуулна.
+2. Функц бүрийн Settings хэсэгт **Verify JWT with legacy secret**-ийг унтраана. CLI ашиглавал `supabase/config.toml` үүнийг автоматаар хийдэг. Хэрэглэгчийг `create-checkout` өөрөө, Stripe-ийг `stripe-webhook` гарын үсгээр нь шалгадаг.
+3. Edge Functions > Secrets хэсэгт `SITE_URL`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`-ийг нэрийг нь яг ингэж бичиж нэмнэ. Хоёр Stripe түлхүүрийн digest ялгаатай байх ёстой, адилхан бол нэг утгыг хоёр газар хуулсан гэсэн үг.
+
 ### 4. Нэвтрэлтийн тохиргоо
 
-Supabase > Authentication > URL Configuration хэсэгт Site URL-аа тохируулж, Redirect URLs-д дараахыг нэмнэ: `http://localhost:5173/login`, `http://localhost:5173/reset-password`.
+Supabase > Authentication > URL Configuration хэсэгт Site URL-аа тохируулж, Redirect URLs-д дараахыг нэмнэ: `http://localhost:5173/**` болон байршуулсан сайтын `https://таны-сайт/**`. `**` нь `/login`, `/reset-password` зэрэг бүх хуудсыг зөвшөөрнө.
 
 ### 5. Ажиллуулах
 
@@ -108,7 +114,7 @@ update public.profiles set role = 'admin' where email = 'таны@имэйл.mn'
 ## Vercel дээр байршуулах
 
 1. Кодоо GitHub-д оруулаад Vercel дээр Import хийнэ. Framework нь Vite гэж автоматаар танигдана.
-2. Vercel > Settings > Environment Variables хэсэгт `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`-г нэмнэ.
+2. Vercel > Settings > Environment Variables хэсэгт `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`-г нэмнэ. Шинэ Supabase төсөлд anon түлхүүрийн оронд `sb_publishable_...` гэсэн **publishable** түлхүүр байдаг, түүнийг ашиглана. `sb_secret_...` түлхүүрийг хэзээ ч энд бичихгүй.
 3. Vercel > Settings > Domains хэсэгт өөрийн домэйнээ холбоно. HTTPS автоматаар идэвхжинэ.
 4. Төлбөрийн дараах буцах хаягийг шинэчилнэ:
 
@@ -132,12 +138,14 @@ update public.profiles set role = 'admin' where email = 'таны@имэйл.mn'
 
 ## Туршилтын эрх
 
-Хамгаалалт-2-оос өмнө production орчинд үүсгэж, багшид тусад нь өгнө. Нууц үгийг энэ файлд бичихгүй.
+Репозитори нийтэд нээлттэй тул имэйл, нууц үгийг энд бичихгүй. Нэвтрэх мэдээллийг багшид тусад нь өгнө.
 
-| Эрх | Имэйл |
-|---|---|
-| Админ | _бөглөнө_ |
-| Хэрэглэгч | _бөглөнө_ |
+| Эрх | Юуг шалгах вэ | Төлөв |
+|---|---|---|
+| Админ | Самбар, бүтээгдэхүүний CRUD, зураг оруулах, захиалгын төлөв, хэрэглэгч, төлбөр | Үүсгэсэн |
+| Хэрэглэгч | Бүртгэл, сагс, захиалга, туршилтын төлбөр, гэрчилгээ | Хамгаалалт-2-оос өмнө үүсгэнэ |
+
+Шинэ хэрэглэгчийг админ болгох: SQL Editor дээр дээрх «Админ үүсгэх» хэсгийн командыг ажиллуулна.
 
 ## Аюулгүй байдал
 
