@@ -53,9 +53,12 @@ Deno.serve(async (req) => {
     }
 
     if (event.type === 'checkout.session.expired') {
+      // The customer left without paying. Put the stock back on sale and the
+      // bags back in their cart, so they don't have to find them again.
       const session = event.data.object
       const { error } = await admin.rpc('cancel_pending_order', {
         p_order: session.metadata.order_id,
+        p_restore_cart: true,
       })
       if (error) throw error
     }
