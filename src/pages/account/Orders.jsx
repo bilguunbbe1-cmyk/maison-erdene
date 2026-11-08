@@ -35,7 +35,7 @@ export default function Orders() {
 
   return (
     <div className="container-page max-w-4xl py-12">
-      <h1 className="text-5xl">Миний захиалга</h1>
+      <h1 className="text-3xl sm:text-4xl">Миний захиалга</h1>
       <ul className="mt-10 divide-y divide-line border-y border-line">
         {orders.map((order) => (
           <li key={order.id}>

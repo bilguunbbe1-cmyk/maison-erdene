@@ -38,7 +38,7 @@ export default function Verify() {
   return (
     <div className="container-page max-w-2xl py-16 text-center">
       <p className="eyebrow">Баталгаа шалгах</p>
-      <h1 className="mt-3 text-5xl">Таны цүнх жинхэнэ үү?</h1>
+      <h1 className="mt-3 text-3xl sm:text-4xl">Таны цүнх жинхэнэ үү?</h1>
       <p className="mt-4 text-sm leading-6 text-ash">
         Гэрчилгээн дээрх сериал дугаарыг оруулж шалгана уу.
       </p>

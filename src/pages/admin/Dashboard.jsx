@@ -21,7 +21,7 @@ function Stat({ label, value, note }) {
   return (
     <div className="border border-line p-5">
       <p className="text-xs text-ash">{label}</p>
-      <p className="mt-2 font-serif text-4xl leading-none">{value}</p>
+      <p className="mt-2 text-3xl font-light leading-none">{value}</p>
       {note && <p className="mt-2 text-xs text-ash">{note}</p>}
     </div>
   )

@@ -19,7 +19,7 @@ async function fetchProducts({ q, category, collection, min, max, sort, page }) 
   // !inner turns the join into a filter: only bags with a matching row remain.
   // "collections" goes through the product_collections link table (N:M).
   const fields = [
-    'id, name, slug, price, stock, color, product_images(url, position)',
+    'id, name, slug, price, stock, color, created_at, product_images(url, position)',
     `categories${category ? '!inner' : ''}(slug)`,
     ...(collection ? ['collections!inner(slug)'] : []),
   ].join(', ')
@@ -112,11 +112,14 @@ export default function Shop() {
   }
 
   return (
-    <div className="container-page py-12">
-      <p className="eyebrow">Дэлгүүр</p>
-      <h1 className="mt-2 text-5xl">Бүх цүнх</h1>
+    <div className="container-wide py-8">
+      <p className="text-xs text-ash">Цүнх</p>
+      <div className="mt-2 flex flex-wrap items-baseline gap-x-3">
+        <h1 className="text-3xl sm:text-4xl">Бүх цүнх</h1>
+        {!loading && !error && <span className="text-sm text-ash">{total}</span>}
+      </div>
 
-      <div className="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr_1.3fr]">
+      <div className="mt-8 grid grid-cols-2 gap-3 border-y border-line py-4 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr_1.3fr]">
         <input
           type="search"
           className="input col-span-2 lg:col-span-1"
@@ -195,7 +198,7 @@ export default function Shop() {
             text="Таны хайлтад тохирох цүнх алга байна. Өөр үгээр хайх эсвэл шүүлтүүрээ багасгаад үзнэ үү."
           />
         ) : (
-          <div className={`grid grid-cols-2 gap-x-4 gap-y-10 transition-opacity lg:grid-cols-4 lg:gap-x-6 ${loading ? 'opacity-50' : ''}`}>
+          <div className={`grid grid-cols-2 gap-x-2 gap-y-8 transition-opacity lg:grid-cols-4 ${loading ? 'opacity-50' : ''}`}>
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

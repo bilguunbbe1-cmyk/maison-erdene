@@ -15,7 +15,7 @@ export default function AdminLayout() {
     <div className="min-h-screen lg:grid lg:grid-cols-[230px_1fr]">
       <aside className="bg-ink text-ivory lg:sticky lg:top-0 lg:h-screen">
         <div className="flex items-center justify-between px-5 py-5 lg:block lg:px-7 lg:py-8">
-          <Link to="/" className="font-serif text-xl tracking-[0.3em]">ERDENE</Link>
+          <Link to="/" className="font-display text-xl tracking-[0.3em]">ERDENE</Link>
           <p className="text-[11px] tracking-[0.2em] text-gold uppercase lg:mt-1">Админ</p>
         </div>
         <nav className="flex gap-1 overflow-x-auto px-3 pb-3 lg:flex-col lg:px-4">

@@ -22,7 +22,7 @@ async function fetchProduct(slug) {
   const related = await unwrap(
     supabase
       .from('products')
-      .select('id, name, slug, price, stock, color, product_images(url, position)')
+      .select('id, name, slug, price, stock, color, created_at, product_images(url, position)')
       .eq('category_id', product.category_id)
       .eq('is_active', true)
       .neq('id', product.id)
@@ -37,13 +37,9 @@ export default function ProductDetail() {
   const { addItem } = useCart()
   const navigate = useNavigate()
   const location = useLocation()
-  const [selected, setSelected] = useState(0)
   const [adding, setAdding] = useState(false)
 
-  const { data, loading, error, reload } = useFetch(() => {
-    setSelected(0)
-    return fetchProduct(slug)
-  }, [slug])
+  const { data, loading, error, reload } = useFetch(() => fetchProduct(slug), [slug])
 
   if (error) return <ErrorState onRetry={reload} />
   if (loading || data === undefined) return <PageLoader />
@@ -79,7 +75,7 @@ export default function ProductDetail() {
   }
 
   return (
-    <div className="container-page py-8 lg:py-12">
+    <div className="container-wide px-5 py-8 sm:px-6 lg:py-12">
       <nav className="mb-6 text-xs text-ash" aria-label="Байршил">
         <Link to="/shop" className="hover:text-ink">Дэлгүүр</Link>
         <span className="mx-2">/</span>
@@ -87,35 +83,25 @@ export default function ProductDetail() {
       </nav>
 
       <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-14">
-        <div>
-          <div className="bg-sand">
-            {images[selected] ? (
-              <img src={images[selected].url} alt={product.name} className="aspect-square w-full object-cover" />
-            ) : (
-              <div className="flex aspect-square items-center justify-center text-sm text-ash">Зураггүй</div>
-            )}
-          </div>
-          {images.length > 1 && (
-            <div className="mt-3 flex gap-3">
-              {images.map((image, index) => (
-                <button
-                  key={image.id}
-                  type="button"
-                  onClick={() => setSelected(index)}
-                  aria-label={`${index + 1}-р зураг`}
-                  aria-current={index === selected}
-                  className={`size-20 cursor-pointer border ${index === selected ? 'border-ink' : 'border-transparent'}`}
-                >
-                  <img src={image.url} alt="" className="size-full object-cover" />
-                </button>
-              ))}
-            </div>
+        {/* Phones: swipe sideways through the photos. Desktop: photos stacked, page scrolls past them. */}
+        <div className="-mx-5 flex snap-x snap-mandatory gap-1 overflow-x-auto sm:-mx-8 lg:mx-0 lg:flex-col lg:overflow-visible">
+          {images.length === 0 && (
+            <div className="flex aspect-square w-full items-center justify-center bg-sand text-sm text-ash">Зураггүй</div>
           )}
+          {images.map((image, index) => (
+            <img
+              key={image.id}
+              src={image.url}
+              alt={index === 0 ? product.name : `${product.name}, ${index + 1}-р зураг`}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              className="aspect-[4/5] w-[88%] shrink-0 snap-center bg-sand object-cover lg:aspect-square lg:w-full"
+            />
+          ))}
         </div>
 
         <div className="lg:sticky lg:top-28 lg:self-start">
           <p className="eyebrow">{product.category.name}</p>
-          <h1 className="mt-3 text-4xl leading-tight sm:text-5xl">{product.name}</h1>
+          <h1 className="mt-3 text-3xl leading-tight sm:text-4xl">{product.name}</h1>
           <p className="mt-4 text-lg">{formatPrice(product.price)}</p>
           <p className="mt-6 text-sm leading-7 text-ash">{product.description}</p>
 
@@ -147,7 +133,7 @@ export default function ProductDetail() {
           </div>
 
           <div className="mt-7 border border-line p-5">
-            <p className="font-serif text-xl">Баталгааны гэрчилгээтэй</p>
+            <p className="text-base">Баталгааны гэрчилгээтэй</p>
             <p className="mt-2 text-xs leading-6 text-ash">
               Төлбөр баталгаажмагц энэ цүнхэнд давтагдашгүй сериал дугаар олгогдоно. Жинхэнэ эсэхийг нь{' '}
               <Link to="/verify" className="link">эндээс</Link> хэн ч шалгаж болно.

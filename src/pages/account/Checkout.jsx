@@ -55,7 +55,7 @@ export default function Checkout() {
 
   return (
     <div className="container-page py-12">
-      <h1 className="text-5xl">Захиалга</h1>
+      <h1 className="text-3xl sm:text-4xl">Захиалга</h1>
       <form onSubmit={handleSubmit} noValidate className="mt-10 grid gap-10 lg:grid-cols-[1fr_380px]">
         <section className="space-y-5">
           <h2 className="text-2xl">Хүргэлтийн мэдээлэл</h2>
@@ -92,7 +92,7 @@ export default function Checkout() {
           </ul>
           <div className="mt-5 flex items-baseline justify-between border-t border-line pt-5">
             <span className="text-sm">Нийт</span>
-            <span className="font-serif text-3xl">{formatPrice(total)}</span>
+            <span className="text-2xl font-light">{formatPrice(total)}</span>
           </div>
           <button type="submit" className="btn-primary mt-6 w-full" disabled={busy}>
             {busy ? 'Төлбөр рүү шилжиж байна…' : 'Төлбөр төлөх'}

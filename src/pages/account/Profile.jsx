@@ -41,7 +41,7 @@ export default function Profile() {
 
   return (
     <div className="container-page max-w-xl py-12">
-      <h1 className="text-5xl">Миний бүртгэл</h1>
+      <h1 className="text-3xl sm:text-4xl">Миний бүртгэл</h1>
       <p className="mt-3 text-sm text-ash">{user.email}</p>
 
       <div className="mt-6 flex flex-wrap gap-3">

@@ -139,7 +139,7 @@ export default function OrderDetail() {
               </Link>
               <div className="min-w-0 flex-1">
                 <div className="flex justify-between gap-3">
-                  <p className="font-serif text-xl leading-tight">{item.product_name}</p>
+                  <p className="text-base leading-snug">{item.product_name}</p>
                   <p className="text-sm whitespace-nowrap">{formatPrice(item.unit_price * item.quantity)}</p>
                 </div>
                 <p className="mt-1 text-xs text-ash">{item.quantity} ширхэг × {formatPrice(item.unit_price)}</p>
@@ -161,7 +161,7 @@ export default function OrderDetail() {
         </ul>
         <div className="mt-5 flex items-baseline justify-between">
           <span className="text-sm">Нийт</span>
-          <span className="font-serif text-3xl">{formatPrice(order.total)}</span>
+          <span className="text-2xl font-light">{formatPrice(order.total)}</span>
         </div>
       </section>
 

@@ -14,7 +14,7 @@ export default function Wishlist() {
       unwrap(
         supabase
           .from('wishlist_items')
-          .select('product:products(id, name, slug, price, stock, color, product_images(url, position))')
+          .select('product:products(id, name, slug, price, stock, color, created_at, product_images(url, position))')
           .eq('user_id', user.id)
           .order('created_at', { ascending: false }),
       ),
@@ -40,7 +40,7 @@ export default function Wishlist() {
 
   return (
     <div className="container-page py-12">
-      <h1 className="text-5xl">Хадгалсан</h1>
+      <h1 className="text-3xl sm:text-4xl">Хадгалсан</h1>
       <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4 lg:gap-x-6">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />

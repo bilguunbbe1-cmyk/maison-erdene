@@ -1,22 +1,22 @@
 @import 'tailwindcss';
 @import '@fontsource/cormorant-garamond/400.css';
-@import '@fontsource/cormorant-garamond/500.css';
-@import '@fontsource/cormorant-garamond/400-italic.css';
 @import '@fontsource-variable/manrope';
 
-/* Design tokens: every colour and font in the app comes from here. */
+/* Design tokens: every colour and font in the app comes from here.
+   A white page with light-grey product tiles; the serif is kept only for the
+   ERDENE wordmark, everything else is a light sans-serif. */
 @theme {
-  --color-ivory: #f8f5ef;
-  --color-sand: #ebe4d6;
-  --color-line: #ddd5c6;
-  --color-ink: #14110f;
-  --color-ash: #6e665c;
+  --color-ivory: #ffffff; /* page background */
+  --color-sand: #f6f5f3; /* product tiles and quiet panels */
+  --color-line: #e5e2dc;
+  --color-ink: #19110b;
+  --color-ash: #6f6a64;
   --color-gold: #b08d57;
   --color-gold-dark: #8a6c3f;
   --color-ok: #3f6b52;
   --color-danger: #9c2f2f;
 
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Manrope Variable', system-ui, sans-serif;
 }
 
@@ -27,7 +27,7 @@
   h1,
   h2,
   h3 {
-    @apply font-serif font-normal;
+    @apply font-sans font-light tracking-tight;
   }
   :focus-visible {
     outline: 2px solid var(--color-gold);
@@ -72,6 +72,10 @@
   }
   .container-page {
     @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+  /* Product grids run almost edge to edge, like a fashion house's collection page. */
+  .container-wide {
+    @apply mx-auto w-full max-w-[1680px] px-2 sm:px-6;
   }
   .table-admin {
     @apply w-full min-w-[640px] text-left text-sm;

@@ -55,7 +55,7 @@ export default function Cart() {
 
   return (
     <div className="container-page py-12">
-      <h1 className="text-5xl">Сагс</h1>
+      <h1 className="text-3xl sm:text-4xl">Сагс</h1>
 
       <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_360px]">
         <ul className="divide-y divide-line border-y border-line">
@@ -69,7 +69,7 @@ export default function Cart() {
                   <div className="flex min-w-0 flex-1 flex-col">
                     <div className="flex items-start justify-between gap-3">
                       <div>
-                        <Link to={`/products/${item.product.slug}`} className="font-serif text-xl leading-tight">{item.product.name}</Link>
+                        <Link to={`/products/${item.product.slug}`} className="text-base leading-snug">{item.product.name}</Link>
                         <p className="mt-1 text-xs text-ash">{item.product.color}</p>
                       </div>
                       <p className="text-sm whitespace-nowrap">{formatPrice(item.product.price * item.quantity)}</p>
@@ -110,7 +110,7 @@ export default function Cart() {
           </div>
           <div className="mt-5 flex items-baseline justify-between border-t border-line pt-5">
             <span className="text-sm">Нийт</span>
-            <span className="font-serif text-3xl">{formatPrice(total)}</span>
+            <span className="text-2xl font-light">{formatPrice(total)}</span>
           </div>
           {blocked ? (
             <p className="mt-6 text-xs text-danger" role="alert">Төлбөр хийхийн өмнө сагсаа засна уу.</p>

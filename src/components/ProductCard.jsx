@@ -5,6 +5,8 @@ import { useWishlist } from '../context/WishlistContext.jsx'
 import { formatPrice, mainImage } from '../lib/format.js'
 import { Icon } from './ui.jsx'
 
+const NEW_FOR_DAYS = 14
+
 export function ProductImage({ product, className = '' }) {
   const url = mainImage(product)
   return url ? (
@@ -50,24 +52,36 @@ export function WishlistButton({ productId, className = '' }) {
   )
 }
 
+const isNew = (product) =>
+  product.created_at && Date.now() - new Date(product.created_at).getTime() < NEW_FOR_DAYS * 86400000
+
+// One product tile: tall light-grey tile, photo, small name and price below.
+// On devices with a mouse, the second photo fades in on hover.
 export default function ProductCard({ product }) {
+  const images = [...(product.product_images ?? [])].sort((a, b) => a.position - b.position)
+  const [first, second] = images
+
   return (
     <article className="group relative">
       <Link to={`/products/${product.slug}`} className="block">
-        <div className="relative overflow-hidden bg-sand">
-          <ProductImage product={product} className="transition-transform duration-700 group-hover:scale-[1.04]" />
-          {product.stock === 0 && (
-            <span className="absolute bottom-3 left-3 bg-ivory px-2.5 py-1 text-[11px]">Дууссан</span>
+        <div className="relative aspect-[4/5] overflow-hidden bg-sand">
+          {first ? (
+            <img src={first.url} alt={product.name} loading="lazy" className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+          ) : (
+            <div className="flex size-full items-center justify-center text-xs text-ash">Зураггүй</div>
           )}
-          {product.stock === 1 && (
-            <span className="absolute bottom-3 left-3 bg-ink px-2.5 py-1 text-[11px] text-ivory">Сүүлийн ширхэг</span>
+          {second && (
+            <img src={second.url} alt="" loading="lazy" aria-hidden="true" className="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-500 [@media(hover:hover)]:group-hover:opacity-100" />
           )}
+          {/* One tag at most: stock news matters more than "new". */}
+          <span className="absolute top-3 left-3 text-[11px]">
+            {product.stock === 0 ? 'Дууссан' : product.stock === 1 ? 'Сүүлийн ширхэг' : isNew(product) ? 'Шинэ' : ''}
+          </span>
         </div>
-        <h3 className="mt-4 font-serif text-xl leading-tight">{product.name}</h3>
-        <p className="mt-1 text-xs text-ash">{product.color}</p>
-        <p className="mt-2 text-sm">{formatPrice(product.price)}</p>
+        <h3 className="mt-3 text-sm leading-5 font-normal">{product.name}</h3>
+        <p className="mt-0.5 text-sm text-ash">{formatPrice(product.price)}</p>
       </Link>
-      <WishlistButton productId={product.id} className="absolute top-1.5 right-1.5" />
+      <WishlistButton productId={product.id} className="absolute top-1 right-1" />
     </article>
   )
 }
