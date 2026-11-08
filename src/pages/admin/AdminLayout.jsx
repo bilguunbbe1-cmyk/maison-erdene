@@ -8,6 +8,7 @@ const LINKS = [
   { to: '/admin/orders', label: 'Захиалга' },
   { to: '/admin/payments', label: 'Төлбөр' },
   { to: '/admin/users', label: 'Хэрэглэгч' },
+  { to: '/admin/support', label: 'Тусламж' },
 ]
 
 export default function AdminLayout() {

@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
 import { useCart } from '../context/CartContext.jsx'
 import { Icon } from './ui.jsx'
+import { CONTACT } from '../lib/contact.js'
 
 // Links in the slide-out menu, grouped like a fashion house's main menu.
 const MENU = [
@@ -72,6 +73,7 @@ function MenuDrawer({ open, onClose }) {
         ))}
         <div className="mt-auto space-y-1 border-t border-line pt-6 text-sm">
           <Link to="/verify" className="block py-1.5" tabIndex={open ? 0 : -1}>Баталгаа шалгах</Link>
+          <Link to="/help" className="block py-1.5" tabIndex={open ? 0 : -1}>Тусламж, холбоо барих</Link>
           <Link to="/wishlist" className="block py-1.5" tabIndex={open ? 0 : -1}>Хадгалсан</Link>
           {user && <Link to="/orders" className="block py-1.5" tabIndex={open ? 0 : -1}>Миний захиалга</Link>}
           {isAdmin && <Link to="/admin" className="block py-1.5 text-gold-dark" tabIndex={open ? 0 : -1}>Админ самбар</Link>}
@@ -165,8 +167,13 @@ function Footer() {
         <div>
           <p className="eyebrow">Үйлчилгээ</p>
           <ul className="mt-4 space-y-2.5 text-sm">
+            <li><Link className="hover:text-gold-dark" to="/help">Тусламжийн төв</Link></li>
             <li><Link className="hover:text-gold-dark" to="/verify">Баталгаа шалгах</Link></li>
             <li><Link className="hover:text-gold-dark" to="/orders">Миний захиалга</Link></li>
+          </ul>
+          <ul className="mt-5 space-y-1.5 text-sm text-ash">
+            <li><a className="hover:text-ink" href={CONTACT.phoneHref}>{CONTACT.phone}</a></li>
+            <li><a className="hover:text-ink" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
           </ul>
         </div>
       </div>

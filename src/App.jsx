@@ -11,6 +11,7 @@ import Home from './pages/Home.jsx'
 import Shop from './pages/Shop.jsx'
 import ProductDetail from './pages/ProductDetail.jsx'
 import Verify from './pages/Verify.jsx'
+import Help from './pages/Help.jsx'
 import Login from './pages/auth/Login.jsx'
 import Register from './pages/auth/Register.jsx'
 import ForgotPassword from './pages/auth/ForgotPassword.jsx'
@@ -32,6 +33,7 @@ const Taxonomy = lazy(() => import('./pages/admin/Taxonomy.jsx'))
 const AdminOrders = lazy(() => import('./pages/admin/Orders.jsx'))
 const Users = lazy(() => import('./pages/admin/Users.jsx'))
 const Payments = lazy(() => import('./pages/admin/Payments.jsx'))
+const Support = lazy(() => import('./pages/admin/Support.jsx'))
 
 export default function App() {
   return (
@@ -47,6 +49,7 @@ export default function App() {
                   <Route path="shop" element={<Shop />} />
                   <Route path="products/:slug" element={<ProductDetail />} />
                   <Route path="verify" element={<Verify />} />
+                  <Route path="help" element={<Help />} />
                   <Route path="login" element={<Login />} />
                   <Route path="register" element={<Register />} />
                   <Route path="forgot-password" element={<ForgotPassword />} />
@@ -83,6 +86,7 @@ export default function App() {
                     <Route path="orders" element={<AdminOrders />} />
                     <Route path="users" element={<Users />} />
                     <Route path="payments" element={<Payments />} />
+                    <Route path="support" element={<Support />} />
                   </Route>
                 </Route>
               </Routes>
