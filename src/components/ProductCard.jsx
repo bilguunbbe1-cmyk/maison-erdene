@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { useAuth } from '../context/AuthContext.jsx'
 import { useWishlist } from '../context/WishlistContext.jsx'
-import { formatPrice, mainImage } from '../lib/format.js'
+import { formatPrice, mainImage, productImages } from '../lib/format.js'
 import { Icon } from './ui.jsx'
 
 const NEW_FOR_DAYS = 14
@@ -58,8 +58,7 @@ const isNew = (product) =>
 // One product tile: tall light-grey tile, photo, small name and price below.
 // On devices with a mouse, the second photo fades in on hover.
 export default function ProductCard({ product }) {
-  const images = [...(product.product_images ?? [])].sort((a, b) => a.position - b.position)
-  const [first, second] = images
+  const [first, second] = productImages(product)
 
   return (
     <article className="group relative">

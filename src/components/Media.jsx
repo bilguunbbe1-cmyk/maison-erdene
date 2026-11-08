@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 
 // An image that switches to `fallback` if `src` is missing or broken.
 // The fallback artwork is square, so it is shown whole instead of cropped.
-export function FallbackImage({ src, fallback, alt = '', className = '', ...rest }) {
+// `focus` is the CSS object-position of the part of the photo to keep when cropped.
+export function FallbackImage({ src, fallback, focus, alt = '', className = '', ...rest }) {
   const [current, setCurrent] = useState(src || fallback)
 
   useEffect(() => setCurrent(src || fallback), [src, fallback])
@@ -12,7 +13,7 @@ export function FallbackImage({ src, fallback, alt = '', className = '', ...rest
       src={current}
       alt={alt}
       className={className}
-      style={current === fallback ? { objectFit: 'contain' } : undefined}
+      style={current === fallback ? { objectFit: 'contain' } : { objectPosition: focus }}
       onError={() => {
         if (fallback && current !== fallback) setCurrent(fallback)
       }}

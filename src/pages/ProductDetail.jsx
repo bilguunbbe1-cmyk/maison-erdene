@@ -7,7 +7,7 @@ import { useAuth } from '../context/AuthContext.jsx'
 import { useCart } from '../context/CartContext.jsx'
 import ProductCard, { WishlistButton } from '../components/ProductCard.jsx'
 import { EmptyState, ErrorState, PageLoader } from '../components/ui.jsx'
-import { formatPrice } from '../lib/format.js'
+import { formatPrice, productImages } from '../lib/format.js'
 
 async function fetchProduct(slug) {
   const product = await unwrap(
@@ -54,7 +54,7 @@ export default function ProductDetail() {
   }
 
   const { product, related } = data
-  const images = [...product.product_images].sort((a, b) => a.position - b.position)
+  const images = productImages(product)
   const purchasable = product.is_active && product.stock > 0
 
   const handleAdd = async () => {

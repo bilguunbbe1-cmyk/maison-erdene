@@ -18,6 +18,8 @@ export const MEDIA = {
   editorial: [
     {
       src: '/media/editorial-1.jpg',
+      // Wide photo in a tall tile: keep the model and the bag beside her in frame.
+      focus: '64% 50%',
       fallback: '/bags/khangai-hobo-dark.svg',
       eyebrow: 'Говь цуглуулга',
       title: 'Элсэн манхны өнгө',

@@ -59,8 +59,17 @@ from (values
 join public.categories c on c.slug = v.category_slug;
 
 -- Two views per bag: the studio shot and the dark campaign shot.
+-- Bags with an AI-generated studio photo use it; the rest keep the drawing.
 insert into public.product_images (product_id, url, position)
-select p.id, '/bags/' || p.slug || '.svg', 0 from public.products p;
+select p.id,
+  case when p.slug in ('suld-top-handle', 'suld-top-handle-ivory', 'manan-mini', 'seruun-shoulder',
+                       'khangai-hobo', 'kherlen-tote-green', 'nuudel-crossbody', 'nuudel-bucket',
+                       'od-clutch', 'od-clutch-gold')
+    then '/media/products/' || p.slug || '.jpg'
+    else '/bags/' || p.slug || '.svg'
+  end,
+  0
+from public.products p;
 insert into public.product_images (product_id, url, position)
 select p.id, '/bags/' || p.slug || '-dark.svg', 1 from public.products p;
 

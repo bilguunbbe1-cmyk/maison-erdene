@@ -12,6 +12,7 @@ function EditorialTile({ item }) {
       <FallbackImage
         src={item.src}
         fallback={item.fallback}
+        focus={item.focus}
         alt=""
         loading="lazy"
         className="absolute inset-0 size-full object-cover transition-transform duration-[1200ms] group-hover:scale-[1.03]"

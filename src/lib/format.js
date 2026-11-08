@@ -22,10 +22,20 @@ export const ORDER_STATUS = {
   cancelled: { label: 'Цуцлагдсан', className: 'border-danger text-danger' },
 }
 
-// Picks the first image by position. Returns null when a bag has none yet.
+// The seed data's drawn placeholders live under /bags/. Once a bag has a real
+// photo, its drawings would look out of place next to it, so they are left out.
+const isDrawing = (image) => image.url.startsWith('/bags/')
+
+// A bag's images in display order: photos only if it has any, else its drawings.
+export function productImages(product) {
+  const images = [...(product?.product_images ?? [])].sort((a, b) => a.position - b.position)
+  const photos = images.filter((image) => !isDrawing(image))
+  return photos.length > 0 ? photos : images
+}
+
+// Picks the first image to show. Returns null when a bag has none yet.
 export function mainImage(product) {
-  const images = product?.product_images ?? []
-  return [...images].sort((a, b) => a.position - b.position)[0]?.url ?? null
+  return productImages(product)[0]?.url ?? null
 }
 
 const CYRILLIC = {
